@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClimateWatch - Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> ClimateWatch</h1>
+            <p class="subtitle">Real-time Weather Dashboard</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Enter city name (e.g., Johannesburg, Cape Town)" value="Johannesburg">
+                <button id="searchBtn"><i class="fas fa-search"></i> Get Weather</button>
+            </div>
+            <div class="location-buttons">
+                <button class="location-btn" data-city="Johannesburg">Johannesburg</button>
+                <button class="location-btn" data-city="Cape Town">Cape Town</button>
+                <button class="location-btn" data-city="Durban">Durban</button>
+                <button class="location-btn" data-city="Pretoria">Pretoria</button>
+            </div>
+        </div>
+
+        <!-- Main Weather Display -->
+        <div class="weather-container">
+            <!-- Current Weather -->
+            <div class="current-weather card">
+                <div class="weather-header">
+                    <h2 id="currentCity">Johannesburg, ZA</h2>
+                    <p id="currentDate">Loading date...</p>
+                </div>
+                
+                <div class="weather-main">
+                    <div class="temperature">
+                        <div class="temp-value" id="currentTemp">24</div>
+                        <div class="temp-unit">°C</div>
+                    </div>
+                    
+                    <div class="weather-info">
+                        <div class="weather-icon" id="weatherIcon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-desc" id="weatherDesc">Sunny</div>
+                    </div>
+                </div>
+                
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <div>
+                            <div class="detail-label">Wind</div>
+                            <div class="detail-value" id="windSpeed">12 km/h</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <div>
+                            <div class="detail-label">Humidity</div>
+                            <div class="detail-value" id="humidity">45%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-temperature-high"></i>
+                        <div>
+                            <div class="detail-label">Feels Like</div>
+                            <div class="detail-value" id="feelsLike">25°C</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-compress-alt"></i>
+                        <div>
+                            <div class="detail-label">Pressure</div>
+                            <div class="detail-value" id="pressure">1013 hPa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forecast -->
+            <div class="forecast card">
+                <h3><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
+                <div class="forecast-grid" id="forecastGrid">
+                    <!-- Forecast items will be inserted here by JavaScript -->
+                    <div class="loading">Loading forecast data...</div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <div class="info-card card">
+                    <h4><i class="fas fa-info-circle"></i> About This App</h4>
+                    <p>ClimateWatch is a responsive weather dashboard that fetches real-time data from the OpenWeather API. Built with vanilla JavaScript, it demonstrates API integration, asynchronous programming, and responsive UI design.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">API Integration</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Responsive Design</span>
+                    </div>
+                </div>
+                
+                <div class="info-card card">
+                    <h4><i class="fas fa-code"></i> Developer Info</h4>
+                    <p>This project is part of Tiisetso Mmola's portfolio, showcasing practical web development skills. The code is clean, modular, and well-documented.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Tiisetso012/weather-app" target="_blank" class="github-link">
+                            <i class="fab fa-github"></i> View Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>ClimateWatch Weather Dashboard • Built by Tiisetso Mmola • Data from OpenWeather API</p>
+            <p class="footer-note">Part of Software Developer Portfolio</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
