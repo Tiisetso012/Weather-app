@@ -209,27 +209,43 @@ function showLoading(isLoading) {
 }
 
 // Demo mode with mock data (for testing without API key)
+// Enhanced demo mode with mock data for all cities
 function enableDemoMode() {
-    console.log('Demo mode enabled - using mock data');
+    console.log('Demo mode enabled - using enhanced mock data');
     
-    // Mock current weather data
-    const mockCurrentData = {
-        name: 'Johannesburg',
-        sys: { country: 'ZA' },
-        main: {
-            temp: 24,
-            feels_like: 25,
-            humidity: 45,
-            pressure: 1013
+    // Mock data for different cities
+    const mockCityData = {
+        'Johannesburg': {
+            name: 'Johannesburg',
+            sys: { country: 'ZA' },
+            main: { temp: 24, feels_like: 25, humidity: 45, pressure: 1013 },
+            weather: [{ description: 'Sunny', icon: '01d' }],
+            wind: { speed: 3.3 }
         },
-        weather: [{ 
-            description: 'Sunny',
-            icon: '01d'
-        }],
-        wind: { speed: 3.3 } // m/s
+        'Cape Town': {
+            name: 'Cape Town',
+            sys: { country: 'ZA' },
+            main: { temp: 18, feels_like: 17, humidity: 65, pressure: 1015 },
+            weather: [{ description: 'Partly Cloudy', icon: '02d' }],
+            wind: { speed: 5.2 }
+        },
+        'Durban': {
+            name: 'Durban',
+            sys: { country: 'ZA' },
+            main: { temp: 26, feels_like: 28, humidity: 70, pressure: 1012 },
+            weather: [{ description: 'Humid', icon: '50d' }],
+            wind: { speed: 2.1 }
+        },
+        'Pretoria': {
+            name: 'Pretoria',
+            sys: { country: 'ZA' },
+            main: { temp: 25, feels_like: 26, humidity: 50, pressure: 1014 },
+            weather: [{ description: 'Clear', icon: '01d' }],
+            wind: { speed: 3.8 }
+        }
     };
     
-    // Mock forecast data
+    // Mock forecast data (same for all cities in demo)
     const mockForecastData = {
         list: [
             { dt: Date.now()/1000 + 86400, main: { temp: 25 }, weather: [{ description: 'Sunny', icon: '01d' }] },
@@ -240,7 +256,22 @@ function enableDemoMode() {
         ]
     };
     
-    updateCurrentWeather(mockCurrentData);
+    // Override the getWeatherByCity function for demo mode
+    window.getWeatherByCity = function(city) {
+        console.log('Demo: Loading weather for', city);
+        
+        // Use specific city data or default to Johannesburg
+        const cityData = mockCityData[city] || mockCityData['Johannesburg'];
+        
+        // Simulate API delay
+        setTimeout(() => {
+            updateCurrentWeather(cityData);
+            updateForecast(mockForecastData);
+        }, 300);
+    };
+    
+    // Initialize with default city
+    updateCurrentWeather(mockCityData['Johannesburg']);
     updateForecast(mockForecastData);
 }
 
