@@ -407,3 +407,229 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Demo notice styling */
+.demo-notice {
+    background: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 2px solid #ffeaa7;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+.demo-notice i {
+    font-size: 20px;
+    color: #f39c12;
+}
+
+/* Loading state improvements */
+.loading {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loading i {
+    font-size: 2rem;
+    color: #26d0ce;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation for spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* No forecast message */
+.no-forecast {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-style: italic;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Weather icon styling - ensure it's visible */
+#weatherIcon i {
+    font-size: 5rem !important;
+    color: #FFD700 !important;
+}
+
+/* Fix for temperature display to prevent double °C */
+.temp-display {
+    display: flex;
+    align-items: flex-start;
+}
+
+#currentTemp {
+    font-size: 5rem;
+    font-weight: 300;
+    color: #1a2980;
+    line-height: 1;
+}
+
+/* Fix for weather description */
+#weatherDesc {
+    font-size: 1.3rem;
+    color: #1a2980;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+/* Ensure detail values are updated properly */
+#windSpeed,
+#humidity,
+#feelsLike,
+#pressure {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a2980;
+}
+
+/* My Location button styling */
+#locationBtn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+#locationBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+#locationBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Forecast description styling */
+.forecast-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 8px 0;
+    text-transform: capitalize;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Error message styling */
+.error-message {
+    background: #ffeaea;
+    color: #c0392b;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 2px solid #ffcccc;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.error-message i {
+    font-size: 1.2rem;
+    color: #e74c3c;
+}
+
+/* Success message styling */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border: 2px solid #c3e6cb;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive additions for new elements */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+    }
+    
+    #locationBtn {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .demo-notice {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        margin: 15px;
+    }
+    
+    .demo-notice i {
+        margin-bottom: 5px;
+    }
+    
+    #weatherIcon i {
+        font-size: 4rem !important;
+    }
+    
+    #currentTemp {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-notice {
+        font-size: 14px;
+        padding: 12px;
+        margin: 10px;
+    }
+    
+    #currentTemp {
+        font-size: 3.5rem;
+    }
+}

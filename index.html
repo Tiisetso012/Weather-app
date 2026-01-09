@@ -10,6 +10,8 @@
 </head>
 <body>
     <div class="container">
+        <!-- Demo Notice will appear here if API key is invalid -->
+        
         <!-- Header -->
         <header>
             <h1><i class="fas fa-cloud-sun"></i> ClimateWatch</h1>
@@ -21,6 +23,8 @@
             <div class="search-box">
                 <input type="text" id="cityInput" placeholder="Enter city name (e.g., Johannesburg, Cape Town)" value="Johannesburg">
                 <button id="searchBtn"><i class="fas fa-search"></i> Get Weather</button>
+                <!-- Added My Location button -->
+                <button id="locationBtn"><i class="fas fa-location-arrow"></i> My Location</button>
             </div>
             <div class="location-buttons">
                 <button class="location-btn" data-city="Johannesburg">Johannesburg</button>
@@ -41,8 +45,9 @@
                 
                 <div class="weather-main">
                     <div class="temperature">
-                        <div class="temp-value" id="currentTemp">24</div>
-                        <div class="temp-unit">°C</div>
+                        <div class="temp-value">
+                            <span id="currentTemp">24</span><span class="temp-unit">°C</span>
+                        </div>
                     </div>
                     
                     <div class="weather-info">
@@ -57,7 +62,7 @@
                     <div class="detail-item">
                         <i class="fas fa-wind"></i>
                         <div>
-                            <div class="detail-label">Wind</div>
+                            <div class="detail-label">Wind Speed</div>
                             <div class="detail-value" id="windSpeed">12 km/h</div>
                         </div>
                     </div>
@@ -93,7 +98,10 @@
                 <h3><i class="fas fa-calendar-alt"></i> 5-Day Forecast</h3>
                 <div class="forecast-grid" id="forecastGrid">
                     <!-- Forecast items will be inserted here by JavaScript -->
-                    <div class="loading">Loading forecast data...</div>
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading forecast data...</p>
+                    </div>
                 </div>
             </div>
 
